@@ -17,7 +17,7 @@ CREATE TABLE Label (
   id                      BIGINT AUTO_INCREMENT PRIMARY KEY,
   label                   VARCHAR(255)  NOT NULL,
   type                    VARCHAR(20),
-  color                   INT NOT NULL DEFAULT X'FF000000',
+  color                   BIGINT NOT NULL DEFAULT X'FF000000',
   ord                     BIGINT,
 
   CONSTRAINT UC_label UNIQUE (label),

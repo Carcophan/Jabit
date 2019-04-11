@@ -42,7 +42,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         if (System.getProperty("org.slf4j.simpleLogger.defaultLogLevel") == null)
-            System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "ERROR");
+            System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "INFO");
         if (System.getProperty("org.slf4j.simpleLogger.logFile") == null)
             System.setProperty("org.slf4j.simpleLogger.logFile", "./jabit.log");
 
@@ -54,7 +54,8 @@ public class Main {
             parser.printUsage(System.err);
         }
 
-        JdbcConfig jdbcConfig = new JdbcConfig();
+//        JdbcConfig jdbcConfig =  JdbcConfig.newH2JdbcConfig();
+        JdbcConfig jdbcConfig =  JdbcConfig.newMysqlJdbcConfig();
         BitmessageContext.Builder ctxBuilder = new BitmessageContext.Builder()
             .addressRepo(new JdbcAddressRepository(jdbcConfig))
             .inventory(new JdbcInventory(jdbcConfig))

@@ -41,8 +41,12 @@ public class JdbcConfig {
         flyway.migrate();
     }
 
-    public JdbcConfig() {
-        this("jdbc:h2:~/jabit;AUTO_SERVER=TRUE", "sa", null);
+    public static JdbcConfig newH2JdbcConfig(){
+        return new JdbcConfig("jdbc:h2:~/jabit;AUTO_SERVER=TRUE", "sa", null);
+    }
+
+    public static JdbcConfig newMysqlJdbcConfig(){
+        return new JdbcConfig("jdbc:mysql://localhost/jabit", "admin", "admin");
     }
 
     public Connection getConnection() throws SQLException {

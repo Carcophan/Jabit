@@ -4,5 +4,5 @@ CREATE TABLE Address (
   alias                  VARCHAR(255),
   public_key             BLOB,
   private_key            BLOB,
-  subscribed             BIT DEFAULT '0'
+  subscribed             BIT DEFAULT 0
 );
