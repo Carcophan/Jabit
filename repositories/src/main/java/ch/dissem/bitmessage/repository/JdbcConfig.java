@@ -38,6 +38,8 @@ public class JdbcConfig {
         this.dbPassword = dbPassword;
         this.flyway = new Flyway();
         flyway.setDataSource(dbUrl, dbUser, dbPassword);
+
+        // TODO: refactor! never do IO or heavy stuff from inside a constructor
         flyway.migrate();
     }
 
